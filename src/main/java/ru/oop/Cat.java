@@ -6,7 +6,7 @@ public class Cat {
     private String name;
 
     public void show() {
-        System.out.println(this.name);
+        System.out.print(this.name + " - ");
         System.out.println(this.food);
     }
 
@@ -19,8 +19,9 @@ public class Cat {
     }
 
     public static void main(String[] args) {
-        System.out.println("There are gav's food.");
+
         Cat gav = new Cat();
+        System.out.println("Pet preferences: ");
         gav.giveNick("Barsik");
         gav.eat("kotleta");
         gav.show();
