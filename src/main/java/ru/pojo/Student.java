@@ -3,9 +3,9 @@ package ru.pojo;
 import java.util.Date;
 
 public class Student {
-        private String fullName;
-        private String group;
-        private Date entered;
+    private String fullName;
+    private String group;
+    private Date entered;
 
     public String getFullName() {
         return fullName;
