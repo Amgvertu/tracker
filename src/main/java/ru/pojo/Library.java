@@ -18,13 +18,12 @@ public class Library {
         for (int i = 0; i < books.length; i++) {
             System.out.println(books[i].getTitle() + ", " + books[i].getPage());
         }
-        System.out.println("Вывод только книг CleanCode");
+        System.out.println("Вывод только книг Clean Code");
         for (int i = 0; i < books.length; i++) {
-            if (books[i].getTitle().equals("Clean Code")) {
+            if ("Clean Code".equals(books[i].getTitle())) {
                 System.out.println(books[i].getTitle() + ", " + books[i].getPage());
             }
         }
-
     }
 }
 
