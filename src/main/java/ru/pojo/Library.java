@@ -18,7 +18,7 @@ public class Library {
         for (int i = 0; i < books.length; i++) {
             System.out.println(books[i].getTitle() + ", " + books[i].getPage());
         }
-        System.out.println("Вывод только книг Clean Code");
+        System.out.println("Вывод только книг Clean  Code");
         for (int i = 0; i < books.length; i++) {
             if ("Clean Code".equals(books[i].getTitle())) {
                 System.out.println(books[i].getTitle() + ", " + books[i].getPage());
