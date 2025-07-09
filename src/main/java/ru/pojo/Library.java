@@ -2,15 +2,11 @@ package ru.pojo;
 
 public class Library {
     public static void main(String[] args) {
-        Book kolobok = new Book("Колобок", (short) 40);
-        Book humorBook = new Book("Анекдоты", (short) 156);
-        Book goldFish = new Book("Золотая рыбка", (short) 52);
-        Book cleanCode = new Book("Clean Code", (short) 0);
         Book[] books = new Book[4];
-        books[0] = kolobok;
-        books[1] = humorBook;
-        books[2] = goldFish;
-        books[3] = cleanCode;
+        books[0] = new Book("Колобок", (short) 40);
+        books[1] = new Book("Анекдоты", (short) 156);
+        books[2] = new Book("Золотая рыбка", (short) 52);
+        books[3] = new Book("Clean Code", (short) 0);
         System.out.println("Первоначальный массив");
         for (int i = 0; i < books.length; i++) {
             System.out.println(books[i].getTitle() + ", " + books[i].getPage());
