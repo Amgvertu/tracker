@@ -2,12 +2,12 @@ package ru.pojo;
 
 public class Library {
     public static void main(String[] args) {
-        Book[] books = new Book[4];
-        books[0] = new Book("Колобок", (short) 40);
-        books[1] = new Book("Анекдоты", (short) 156);
-        books[2] = new Book("Золотая рыбка", (short) 52);
-        books[3] = new Book("Clean Code", (short) 0);
-        System.out.println("Первоначальный массив");
+        Book[] books = {
+                new Book("Колобок", (short) 40),
+                new Book("Анекдоты", (short) 156),
+                new Book("Золотая рыбка", (short) 52),
+                new Book("Clean Code", (short) 0)
+        };
         for (int i = 0; i < books.length; i++) {
             System.out.println(books[i].getTitle() + ", " + books[i].getPage());
         }
