@@ -26,8 +26,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] rsl = new Item[size];
-        return rsl;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String name) {
