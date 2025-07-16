@@ -14,12 +14,10 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        int index = indexOf(id);
-        if (index == -1) {
+        if (indexOf(id) == -1) {
             return null;
-        } else {
-            return items[index];
         }
+        return items[indexOf(id)];
     }
 
     public Item[] findAll() {
@@ -40,15 +38,13 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        if (index == -1) {
-            return false;
-        } else {
+        if (index != -1) {
             items[index].setName(item.getName());
-            return true;
         }
+        return false;
     }
 
-    public int indexOf(int id) {
+    private int indexOf(int id) {
         int rsl = -1;
         for (int i = 0; i < size; i++) {
             if (id == items[i].getId()) {
