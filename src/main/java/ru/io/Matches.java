@@ -4,17 +4,6 @@ import java.util.Scanner;
 
 public class Matches {
 
-    private static Boolean validation(int turn, int count) {
-        boolean result = true;
-        if ((turn <= 0) || (turn > 3)) {
-            result = false;
-        }
-        if (count - turn < 0) {
-            result = false;
-        }
-        return result;
-    }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Игра 11.");
@@ -25,10 +14,9 @@ public class Matches {
             System.out.println("Осталось спичек:" + count);
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-            if (validation(matches, count)) {
+            if ((matches > 0) && (matches <= 3) && (count - matches) >= 0) {
                 count -= matches;
                 turn = !turn;
-
             } else {
                 System.out.println("Число должно быть в диапазоне от 1 до 3 и не более " + count);
             }
