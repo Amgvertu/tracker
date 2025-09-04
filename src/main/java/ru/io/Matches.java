@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Matches {
 
-    public static Boolean validation(int turn, int count) {
+    private static Boolean validation(int turn, int count) {
         boolean result = true;
         if ((turn <= 0) || (turn > 3)) {
             result = false;
@@ -22,12 +22,13 @@ public class Matches {
         int count = 11;
         while (count > 0) {
             String player = turn ? "Первый игрок" : "Второй игрок";
+            System.out.println("Осталось спичек:" + count);
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-            turn = !turn;
             if (validation(matches, count)) {
                 count -= matches;
-                System.out.println("Осталось спичек:" + count);
+                turn = !turn;
+
             } else {
                 System.out.println("Число должно быть в диапазоне от 1 до 3 и не более " + count);
             }
