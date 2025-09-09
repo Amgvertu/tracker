@@ -39,10 +39,18 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с указанным id не существует");
                 }
+            } else if (select == 3) {
+                System.out.println("=== Удаление заявки ===");
+                System.out.println("Введите id заявки, которую нужно удалить:");
+                int id = Integer.parseInt(scanner.nextLine());
+                if (tracker.delete(id)) {
+                    System.out.println("Заявка успешно удалена");
+                } else {
+                    System.out.println("Заявки с указанным id не существует");
+                }
             } else if (select == 6) {
                 run = false;
             }
-
         }
     }
 
