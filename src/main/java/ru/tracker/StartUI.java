@@ -28,6 +28,17 @@ public class StartUI {
                     System.out.println("Хранилище еще не содержит заявок");
                 }
 
+            } else if (select == 2) {
+                System.out.println("=== Изменение заявки ===");
+                System.out.println("Введите id заявки, которую нужно изменить:");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.println("Заявка " + id + ", будет изменена, введите имя: ");
+                String name = scanner.nextLine();
+                if (tracker.replace(id, new Item(name))) {
+                    System.out.println("Заявка успешно изменена");
+                } else {
+                    System.out.println("Заявки с указанным id не существует");
+                }
             } else if (select == 6) {
                 run = false;
             }
