@@ -48,6 +48,16 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с указанным id не существует");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Показать заявку по id ===");
+                System.out.println("Введите id заявки:");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("Заявки с указанным id не существует");
+                }
             } else if (select == 6) {
                 run = false;
             }
