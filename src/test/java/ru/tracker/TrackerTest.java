@@ -113,10 +113,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()),
-                "deleted item"
-        };
+        String[] answers = {String.valueOf(item.getId())};
         StartUI.deleteItem(new MockInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted).isNull();
