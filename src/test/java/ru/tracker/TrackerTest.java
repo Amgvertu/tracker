@@ -100,7 +100,7 @@ public class TrackerTest {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
+                String.valueOf(item.getId()),
                 "edited item"
         };
         StartUI.replaceItem(new MockInput(answers), tracker);
@@ -114,12 +114,12 @@ public class TrackerTest {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
-                "edited item"
+                String.valueOf(item.getId()),
+                "deleted item"
         };
         StartUI.deleteItem(new MockInput(answers), tracker);
-        Item edited = tracker.findById(item.getId());
-        assertThat(edited).isNull();
+        Item deleted = tracker.findById(item.getId());
+        assertThat(deleted).isNull();
     }
 
 }
