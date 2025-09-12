@@ -2,7 +2,7 @@ package ru.poly;
 
 public class Bus implements Transport {
 
-    double price;
+    private double price;
 
     @Override
     public void drive() {
