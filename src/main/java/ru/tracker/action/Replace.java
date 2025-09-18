@@ -1,10 +1,15 @@
-package ru.tracker;
+package ru.tracker.action;
 
-public class ReplaceAction implements UserAction {
+import ru.tracker.Item;
+import ru.tracker.Tracker;
+import ru.tracker.input.Input;
+import ru.tracker.output.Output;
+
+public class Replace implements UserAction {
 
     private final Output output;
 
-    public ReplaceAction(Output output) {
+    public Replace(Output output) {
         this.output = output;
     }
 
