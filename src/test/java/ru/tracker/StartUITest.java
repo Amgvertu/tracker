@@ -90,10 +90,11 @@ class StartUITest {
     void whenReplaceItemTestOutputNotSuccessfully() {
         Output output = new MockOutput();
         Tracker tracker = new Tracker();
-        Item one = tracker.add(new Item("test1"));
+        tracker.add(new Item("first"));
+        tracker.add(new Item("second"));
         String replaceName = "New Test Name";
         Input input = new MockInput(
-                new String[] {"0", String.valueOf(one.getId() + 1), replaceName, "1"}
+                new String[] {"0", "45", replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new ReplaceAction(output),
@@ -201,6 +202,8 @@ class StartUITest {
     void whenItemFindByNameTestOutputNotSuccessfully() {
         Output output = new MockOutput();
         Tracker tracker = new Tracker();
+        tracker.add(new Item("first"));
+        tracker.add(new Item("second"));
         Input input = new MockInput(
                 new String[] {"0", "null", "1"}
         );
@@ -255,6 +258,8 @@ class StartUITest {
     void whenItemFindByIdTestOutputNotSuccessfully() {
         Output output = new MockOutput();
         Tracker tracker = new Tracker();
+        tracker.add(new Item("first"));
+        tracker.add(new Item("second"));
         Input input = new MockInput(
                 new String[] {"0", "-1", "1"}
         );
