@@ -61,10 +61,11 @@ class StartUITest {
     void whenReplaceItemTestOutputIsSuccessfully() {
         Output output = new MockOutput();
         Tracker tracker = new Tracker();
-        Item one = tracker.add(new Item("test1"));
+        Item first = tracker.add(new Item("first"));
+        tracker.add(new Item("second"));
         String replaceName = "New Test Name";
         Input input = new MockInput(
-                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+                new String[] {"0", String.valueOf(first.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new ReplaceAction(output),
