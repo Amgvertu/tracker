@@ -2,8 +2,8 @@ package ru.ex;
 
 public class Factorial {
     public int calc(int number) {
-        if (number < 2) {
-            throw new IllegalArgumentException("Аргумент должен быть не меньше 2");
+        if (number < 0) {
+            throw new IllegalArgumentException("Аргумент должен быть не меньше 0");
         }
         int result = 1;
         for (int index = 2; index <= number; index++) {
@@ -13,6 +13,6 @@ public class Factorial {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Factorial().calc(0));
+        new Factorial().calc(-1);
     }
 }
