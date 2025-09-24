@@ -16,15 +16,9 @@ public class StartUI {
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
-        int select;
         while (run) {
             showMenu(actions);
-            try {
-                select = input.askInt("Выбрать: ");
-            } catch (NumberFormatException e) {
-                System.out.println("Пожалуйста, введите корректные данные");
-                continue;
-            }
+            int select = input.askInt("Выбрать: ");
             if (select < 0 || select >= actions.length) {
                 output.println("Неверный ввод, вы можете выбрать: 0 .. " + (actions.length - 1));
                 continue;
