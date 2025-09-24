@@ -288,5 +288,44 @@ class StartUITest {
         );
     }
 
+    @Test
+    void whenInvalidExit() {
+        Output output = new MockOutput();
+        Tracker tracker = new Tracker();
+        Input input = new MockInput(
+                new String[] {"8", "6"}
+        );
+        UserAction[] actions = {
+                new Create(output),
+                new FindAll(output),
+                new Replace(output),
+                new Delete(output),
+                new FindById(output),
+                new FindByName(output),
+                new Exit(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(
+                "Меню:" + ln
+                        + "0. Добавить новую заявку" + ln
+                        + "1. Показать все заявки" + ln
+                        + "2. Изменить заявку" + ln
+                        + "3. Удалить заявку" + ln
+                        + "4. Показать заявку по id" + ln
+                        + "5. Показать заявки по имени" + ln
+                        + "6. Завершить программу" + ln
+                        + "Неверный ввод, вы можете выбрать: 0 .. 6" + ln
+                        + "Меню:" + ln
+                        + "0. Добавить новую заявку" + ln
+                        + "1. Показать все заявки" + ln
+                        + "2. Изменить заявку" + ln
+                        + "3. Удалить заявку" + ln
+                        + "4. Показать заявку по id" + ln
+                        + "5. Показать заявки по имени" + ln
+                        + "6. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
+        );
+    }
 }
 
