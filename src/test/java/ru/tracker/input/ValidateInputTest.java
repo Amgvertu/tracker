@@ -35,9 +35,9 @@ class ValidateInputTest {
         Output output = new MockOutput();
         String[] selects = new String[] {"0", "1", "2", "3", "4"};
         Input in = new MockInput(selects);
+        ValidateInput input = new ValidateInput(output, in);
         int selected;
         for (int i = 0; i < selects.length; i++) {
-            ValidateInput input = new ValidateInput(output, in);
             selected = input.askInt("Выбрать:");
             assertThat(selected).isEqualTo(Integer.parseInt(selects[i]));
         }
