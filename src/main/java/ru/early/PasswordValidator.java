@@ -10,26 +10,45 @@ public class PasswordValidator {
         if ((password.length() < 8) || (password.length() > 32)) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
-        if (!isUpperCaseContain(password)) {
+        isValid(password);
+        return password;
+    }
+
+    private static void isValid(String password) {
+        boolean isUpperCaseContain = false;
+        boolean isLowerCaseContain = false;
+        boolean isDigitContain = false;
+        boolean isSpecialSymbolContain = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i))) {
+                isUpperCaseContain = true;
+            } else if (Character.isLowerCase(password.charAt(i))) {
+                isLowerCaseContain = true;
+            } else if (Character.isDigit(password.charAt(i))) {
+                isDigitContain = true;
+            } else if (!Character.isLetterOrDigit(password.charAt(i))) {
+                isSpecialSymbolContain = true;
+            }
+        }
+        if (!isUpperCaseContain) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
-        if (!isLowerCaseContain(password)) {
+        if (!isLowerCaseContain) {
             throw new IllegalArgumentException("Password should contain at least one lowercase letter");
         }
-        if (!isDigitContain(password)) {
+        if (!isDigitContain) {
             throw new IllegalArgumentException("Password should contain at least one figure");
         }
-        if (!isSpecialSymbolContain(password)) {
+        if (!isSpecialSymbolContain) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
         if (isForbiddenContain(password)) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
-
-        return password;
     }
 
-    private static boolean isUpperCaseContain(String password) {
+    /*private static boolean isUpperCaseContain(String password) {
         for (int i = 0; i < password.length(); i++) {
             if (Character.isUpperCase(password.charAt(i))) {
                 return true;
@@ -63,7 +82,7 @@ public class PasswordValidator {
             }
         }
         return false;
-    }
+    }*/
 
     private static boolean isForbiddenContain(String password) {
         for (String s : FORBIDDEN) {
