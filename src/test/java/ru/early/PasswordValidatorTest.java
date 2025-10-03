@@ -16,8 +16,8 @@ class PasswordValidatorTest {
 
     @Test
     void whenPasswordIsNull() {
-        NullPointerException exception = assertThrows(
-                NullPointerException.class,
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
                 () -> PasswordValidator.validate(null)
         );
         String expected = "Password can't be null";
