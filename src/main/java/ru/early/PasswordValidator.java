@@ -23,12 +23,16 @@ public class PasswordValidator {
         for (int i = 0; i < password.length(); i++) {
             if (Character.isUpperCase(password.charAt(i))) {
                 isUpperCaseContain = true;
+                continue;
             } else if (Character.isLowerCase(password.charAt(i))) {
                 isLowerCaseContain = true;
+                continue;
             } else if (Character.isDigit(password.charAt(i))) {
                 isDigitContain = true;
+                continue;
             } else if (!Character.isLetterOrDigit(password.charAt(i))) {
                 isSpecialSymbolContain = true;
+                continue;
             }
         }
         if (!isUpperCaseContain) {
@@ -47,42 +51,6 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
     }
-
-    /*private static boolean isUpperCaseContain(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isLowerCaseContain(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isLowerCase(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isDigitContain(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isDigit(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isSpecialSymbolContain(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (!Character.isLetterOrDigit(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }*/
 
     private static boolean isForbiddenContain(String password) {
         for (String s : FORBIDDEN) {
