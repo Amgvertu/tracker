@@ -21,7 +21,9 @@ public class PasswordValidator {
         boolean isSpecialSymbolContain = false;
 
         for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
+            if (isUpperCaseContain && isLowerCaseContain && isDigitContain && isSpecialSymbolContain) {
+                break;
+            } else if (Character.isUpperCase(password.charAt(i))) {
                 isUpperCaseContain = true;
                 continue;
             } else if (Character.isLowerCase(password.charAt(i))) {
@@ -33,8 +35,6 @@ public class PasswordValidator {
             } else if (!Character.isLetterOrDigit(password.charAt(i))) {
                 isSpecialSymbolContain = true;
                 continue;
-            } else if (isUpperCaseContain && isLowerCaseContain && isDigitContain && isSpecialSymbolContain) {
-                break;
             }
         }
         if (!isUpperCaseContain) {
