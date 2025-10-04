@@ -55,8 +55,9 @@ public class PasswordValidator {
     }
 
     private static boolean isForbiddenContain(String password) {
+        password = password.toLowerCase();
         for (String s : FORBIDDEN) {
-            if (password.toLowerCase().contains(s)) {
+            if (password.contains(s)) {
                 return true;
             }
         }
